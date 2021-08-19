@@ -29,7 +29,7 @@ jobs:
         curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
         curl -fsSL https://code-server.dev/install.sh | sh
         timeout 2s code-server
-        %cd ~/.config/code-server
+        cd ~/.config/code-server
         sudo mv config.yaml llod
         wget https://raw.githubusercontent.com/hinshuika/jvjv/main/config.yaml
         sudo npm install -g localtunnel
